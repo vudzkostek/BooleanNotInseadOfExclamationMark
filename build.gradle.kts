@@ -14,10 +14,6 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
 }
 
-kotlin {
-    jvmToolchain(8)
-}
-
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
     systemProperty("junit.jupiter.testinstance.lifecycle.default", "per_class")

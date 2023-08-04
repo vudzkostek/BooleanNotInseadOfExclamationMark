@@ -9,11 +9,11 @@ import io.gitlab.arturbosch.detekt.api.Rule
 import io.gitlab.arturbosch.detekt.api.Severity
 import org.jetbrains.kotlin.psi.KtClass
 
-class MyRule(config: Config) : Rule(config) {
+class BooleanNotOverExclamation(config: Config) : Rule(config) {
     override val issue = Issue(
         javaClass.simpleName,
         Severity.CodeSmell,
-        "Custom Rule",
+        "Use Boolean.not() instead of ! operator",
         Debt.FIVE_MINS,
     )
 
