@@ -33,6 +33,10 @@ internal class BooleanNotOverExclamationTest(private val env: KotlinCoreEnvironm
               if(b && !a) {
               
               }
+
+              if(a !is String) {
+               
+              }
           }
 
           fun method2(arg: Boolean) {
@@ -66,6 +70,10 @@ internal class BooleanNotOverExclamationTest(private val env: KotlinCoreEnvironm
 
               if(b && a.not()) {
               
+              }
+
+              if(a !is String) {
+               
               }
           }
 
