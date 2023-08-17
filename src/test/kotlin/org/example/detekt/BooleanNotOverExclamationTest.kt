@@ -37,6 +37,12 @@ internal class BooleanNotOverExclamationTest(private val env: KotlinCoreEnvironm
               if(a !is String) {
                
               }
+
+              val color = if (maxLength == text.length || !isFocused || lineIndex <= text.length) {
+                  Color.RED
+              } else {
+                  Color.BLUE
+              }
           }
 
           fun method2(arg: Boolean) {
@@ -45,7 +51,7 @@ internal class BooleanNotOverExclamationTest(private val env: KotlinCoreEnvironm
         }
         """
         val findings = BooleanNotOverExclamation(Config.empty).compileAndLintWithContext(env, code)
-        findings shouldHaveSize 7
+        findings shouldHaveSize 8
     }
 
     @Test
@@ -74,6 +80,12 @@ internal class BooleanNotOverExclamationTest(private val env: KotlinCoreEnvironm
 
               if(a !is String) {
                
+              }
+
+              val color = if (maxLength == text.length || isFocused.not() || lineIndex <= text.length) {
+                  Color.RED
+              } else {
+                  Color.BLUE
               }
           }
 
